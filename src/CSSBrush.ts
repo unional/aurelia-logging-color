@@ -1,7 +1,7 @@
-import {RGB, createColorsFromMap, rgbHex} from 'color-map'
+import { RGB, createColorsFromMap, rgbHex } from 'color-map'
 
-import {rainbow} from './colors'
-import {BrushOption, Brush} from './interfaces'
+import { rainbow } from './colors'
+import { BrushOption, Brush } from './interfaces'
 
 export class CSSBrush implements Brush {
     private count = 0;
