@@ -24,7 +24,7 @@ export class CSSBrush implements Brush {
   }
 
   color(id: string, ...rest: any[]) {
-    // #TODO style (italic, bold, underscore) rotation
+    // TODO style (italic, bold, underscore) rotation
     const rgb = this.getRgb(id)
     const background = rgbHex(rgb)
     const border = rgbHex(rgb.map(x => Math.max(0, x - 32)))
