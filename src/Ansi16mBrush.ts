@@ -4,11 +4,11 @@ import { rainbow } from './colors'
 import { BrushOption, Brush } from './interfaces'
 
 export class Ansi16mBrush implements Brush {
-  public color: (id: string, ...rest: any[]) => string[]
-  private count = 0
-  private colors: RGB[]
-  private map: { [index: string]: RGB } = {}
-  private option: BrushOption
+  public color: (id: string, ...rest: any[]) => string[];
+  private count = 0;
+  private colors: RGB[];
+  private map: { [index: string]: RGB } = {};
+  private option: BrushOption;
 
   constructor(option: Partial<BrushOption> = {}) {
     this.option = {
@@ -23,7 +23,7 @@ export class Ansi16mBrush implements Brush {
         index: m.index,
         rgb: [m.rgb[0], m.rgb[1] * 0.7, m.rgb[2]] as RGB
       }
-    })
+    });
 
     this.colors = createColorsFromMap(colormap, option.maxColor || 20)
 
@@ -36,12 +36,12 @@ export class Ansi16mBrush implements Brush {
     return this.map[text] = this.map[text] || this.colors[this.count++ % this.option.maxColor]
   }
   private colorAnsi16m(id: string, ...rest: string[]) {
-    const rgb = this.getRgb(id)
+    const rgb = this.getRgb(id);
     return [this.wrapAnsi16m(id, rgb), ...rest]
   }
 
   private getAnsi16mBackgroundString(id: string, ...rest: string[]) {
-    const rgb = this.getRgb(id)
+    const rgb = this.getRgb(id);
     return [this.wrapAnsi16m(` ${id} `, rgb, 10), ...rest]
   }
   private wrapAnsi16m(id: string, rgb, offset: number = 0) {
