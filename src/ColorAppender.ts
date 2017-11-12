@@ -39,9 +39,10 @@ export class ColorAppender {
   }
   debug(logger: Logger, ...rest: any[]) {
     // istanbul ignore next
+    const method = isNode || !console.debug ? console.log : console.debug;
+    // istanbul ignore next
     // tslint:disable-next-line
-    if (typeof console.debug === 'function') {
-      const method = isNode || !console.debug ? console.log : console.debug;
+    if (typeof method === 'function') {
       method.apply(console, this.brush.color(logger.id, ...rest))
     }
   }
