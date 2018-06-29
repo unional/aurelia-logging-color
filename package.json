@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@types/jsdom": "^11.0.4",
-    "@types/node": "^9.6.11",
+    "@types/node": "^10.5.1",
     "aurelia-logging": "^1.4.0",
     "aurelia-polyfills": "^1.3.0",
     "ava": "^0.25.0",
